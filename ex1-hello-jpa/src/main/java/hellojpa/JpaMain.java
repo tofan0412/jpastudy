@@ -18,13 +18,11 @@ public class JpaMain {
         tx.begin();
 
         try {
-            // 영속
-            Member findMember = em.find(Member.class, 150L);
-            findMember.setName("AAAAA");
-
-            // 준영속 상태로 만들어보자.
-            // 더이상 JPA에서 관리하지 않는다. 즉 위에서 업데이트한 내용이 반영되지 않는다.
-            em.detach(findMember);
+            Member member = new Member();
+            member.setId(1L);
+            member.setUsername("홍길동");
+            member.setRoleType(RoleType.USER);
+            em.persist(member);
 
             tx.commit();
         } catch (Exception e) {
