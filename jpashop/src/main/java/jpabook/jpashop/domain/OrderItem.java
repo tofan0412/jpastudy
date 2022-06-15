@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class OrderItem {
     @Id
     @GeneratedValue
-    @Column(name = "ORDER_ITEM_ID") // 길이도 설정 가능
+    @Column(name = "ORDER_ITEM_ID") // 길이도 설정 가능.. 
     private Long id;
     @Column(name = "ORDER_ID")
     private Long orderId;
