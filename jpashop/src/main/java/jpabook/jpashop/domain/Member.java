@@ -3,11 +3,12 @@ package jpabook.jpashop.domain;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "MEMBER")
 public class Member {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "MEMBER_ID") // 대문자로 쓴 이유 : 회사마다 룰이 다르다.
+    @Column(name = "ID")
     private Long id;
+    @Column(name = "NAME")
     private String name;
     private String city;
     private String street;
