@@ -1,5 +1,6 @@
 package com.jpabook;
 
+import jpabook.start.Board;
 import jpabook.start.Member;
 
 import javax.persistence.EntityManager;
@@ -18,7 +19,15 @@ public class JpaMain {
 
         Member member = new Member();
         member.setId("memberA");
+        member.setUsername("조웅현");
+
+        Board board = new Board();
+
+
         em.persist(member);
+        em.persist(board);
+        System.out.println("board.id : " + board.getId());
+
 
         tx.commit();
 

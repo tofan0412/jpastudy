@@ -4,6 +4,9 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "MEMBER", uniqueConstraints = {@UniqueConstraint( // 추가
+    name = "NAME_AGE_UNIQUE",
+    columnNames = {"NAME", "AGE"})})// )})
 public class Member {
     @Id
     @Column(name = "ID")
