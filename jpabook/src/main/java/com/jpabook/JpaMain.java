@@ -18,11 +18,9 @@ public class JpaMain {
         tx.begin();
 
         Member member = new Member();
-        member.setId("memberA");
         member.setUsername("조웅현");
 
         Board board = new Board();
-
 
         em.persist(member);
         em.persist(board);

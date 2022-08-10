@@ -4,12 +4,13 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "MEMBER", uniqueConstraints = {@UniqueConstraint( // 추가
-    name = "NAME_AGE_UNIQUE",
-    columnNames = {"NAME", "AGE"})})// )})
+//@Table(name = "MEMBER", uniqueConstraints = {@UniqueConstraint( // 추가
+//    name = "NAME_AGE_UNIQUE",
+//    columnNames = {"NAME", "AGE"})})// )})
 public class Member {
     @Id
     @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
     @Column(name = "NAME", nullable = false, length = 10)
@@ -28,6 +29,18 @@ public class Member {
 
     @Lob
     private String description;
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
 
     public String getId() {
         return id;
@@ -85,5 +98,3 @@ public class Member {
         this.description = description;
     }
 }
-
-
