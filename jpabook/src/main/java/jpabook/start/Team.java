@@ -6,20 +6,20 @@ import java.util.List;
 
 @Entity
 public class Team {
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "TEAM_ID")
-    private String id;
+    private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "team")
-    // 만약 mappedBy를 설정하지 않으면?
-    private List<Member> members = new ArrayList<>();
+//    @OneToMany(mappedBy = "team")
+//    // 만약 mappedBy를 설정하지 않으면?
+//    private List<Member> members = new ArrayList<>();
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

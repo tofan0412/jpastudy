@@ -30,6 +30,10 @@ public class Member {
     @Lob
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
+
     public Team getTeam() {
         return team;
     }
@@ -37,10 +41,6 @@ public class Member {
     public void setTeam(Team team) {
         this.team = team;
     }
-
-    @ManyToOne
-    @JoinColumn(name = "TEAM_ID")
-    private Team team;
 
     public Long getId() {
         return id;
@@ -96,5 +96,13 @@ public class Member {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Member(String username) {
+        this.username = username;
+    }
+
+    public Member() {
+
     }
 }
