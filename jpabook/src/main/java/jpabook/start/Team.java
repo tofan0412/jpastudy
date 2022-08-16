@@ -12,6 +12,7 @@ public class Team {
     private String name;
 
     @OneToMany(mappedBy = "team")
+    // 만약 mappedBy를 설정하지 않으면?
     private List<Member> members = new ArrayList<>();
 
     public String getId() {

@@ -11,7 +11,7 @@ public class Member {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Long id;
 
     @Column(name = "NAME", nullable = false, length = 10)
     private String username;
@@ -42,11 +42,11 @@ public class Member {
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -17,16 +17,6 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        Member member = new Member();
-        member.setUsername("조웅현");
-
-        Board board = new Board();
-
-        em.persist(member);
-        em.persist(board);
-        System.out.println("board.id : " + board.getId());
-
-
         tx.commit();
 
         em.close();
