@@ -8,6 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -18,27 +20,20 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        Team team1 = new Team();
-        Team team2 = new Team();
-        Team team3 = new Team();
-
-        team1.setName("team1");
-        team2.setName("team2");
-        team3.setName("team3");
-
         Member member1 = new Member("memberA");
-        member1.setTeam(team1);
-
         Member member2 = new Member("memberB");
-        member2.setTeam(team1);
 
-        Member member3 = new Member("memberC");
+        Team team = new Team();
 
-        em.persist(team1);
-        em.persist(team2);
+        List<Member> members = new ArrayList<>();
+        members.add(member1);
+        members.add(member2);
+
+        team.setMembers(members);
+
         em.persist(member1);
         em.persist(member2);
-        em.persist(member3);
+        em.persist(team);
 
         tx.commit();
 
