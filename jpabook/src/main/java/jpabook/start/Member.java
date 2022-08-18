@@ -1,7 +1,9 @@
 package jpabook.start;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 //@Table(name = "MEMBER", uniqueConstraints = {@UniqueConstraint( // 추가
@@ -33,6 +35,16 @@ public class Member {
     @ManyToOne
     @JoinColumn(name = "TEAM_ID")
     private Team team;
+
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
+
+    @ManyToMany
+    @JoinTable(name = "MEMBER_PRODUCT",
+            joinColumns = @JoinColumn(name = "MEMBER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID"))
+    private List<Product> products = new ArrayList<>();
 
     public Team getTeam() {
         return team;
